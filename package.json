@@ -1,6 +1,6 @@
 {
   "name": "@actsecurity/iam-shrink",
-  "version": "0.1.89",
+  "version": "0.1.90",
   "description": "Shrink IAM Policies",
   "scripts": {
     "build": "npx tsc -p tsconfig.cjs.json && npx tsc -p tsconfig.esm.json && ./postbuild.sh",
@@ -40,7 +40,7 @@
     "@actsecurity/prettier-config": "^0.1.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/exec": "^7.1.0",    
+    "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
     "@semantic-release/npm": "^13.1.4",

@@ -1,3 +1,10 @@
+## [0.1.90](https://github.com/act-security-labs/iam-shrink/compare/v0.1.89...v0.1.90) (2026-09-01)
+
+
+### Features
+
+* Move to actsecurity ([aff947c](https://github.com/act-security-labs/iam-shrink/commit/aff947cdb20dce1b297677f2f26b694c2bfee7f6))
+
 ## [0.1.89](https://github.com/cloud-copilot/iam-shrink/compare/v0.1.88...v0.1.89) (2026-08-29)
 
 ## [0.1.88](https://github.com/cloud-copilot/iam-shrink/compare/v0.1.87...v0.1.88) (2026-08-22)
