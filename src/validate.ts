@@ -1,4 +1,4 @@
-import { expandIamActions } from '@cloud-copilot/iam-expand'
+import { expandIamActions } from '@actsecurity/iam-expand'
 
 /**
  * Checks a list of patterns against a list of desired actions to validate:

@@ -1,5 +1,5 @@
 {
-  "name": "@cloud-copilot/iam-shrink",
+  "name": "@actsecurity/iam-shrink",
   "version": "0.1.89",
   "description": "Shrink IAM Policies",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cloud-copilot/iam-shrink.git"
+    "url": "git+https://github.com/act-security-labs/iam-shrink.git"
   },
   "exports": {
     ".": {
@@ -30,16 +30,17 @@
     "IAM Policy Size",
     "IAM Policy Optimization"
   ],
-  "author": "David Kerber <dave@cloudcopilot.io>",
+  "author": "Act Security",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/cloud-copilot/iam-shrink/issues"
+    "url": "https://github.com/act-security-labs/iam-shrink/issues"
   },
-  "homepage": "https://github.com/cloud-copilot/iam-shrink#readme",
+  "homepage": "https://github.com/act-security-labs/iam-shrink#readme",
   "devDependencies": {
-    "@cloud-copilot/prettier-config": "^0.1.1",
+    "@actsecurity/prettier-config": "^0.1.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/exec": "^7.1.0",    
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
     "@semantic-release/npm": "^13.1.4",
@@ -51,10 +52,10 @@
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
-    "@cloud-copilot/iam-data": ">=0.12.0 <1.0.0",
-    "@cloud-copilot/iam-expand": ">=0.11.25 <1.0.0"
+    "@actsecurity/iam-data": ">=0.12.0 <1.0.0",
+    "@actsecurity/iam-expand": ">=0.11.25 <1.0.0"
   },
-  "prettier": "@cloud-copilot/prettier-config",
+  "prettier": "@actsecurity/prettier-config",
   "release": {
     "branches": [
       "main"
@@ -92,6 +93,12 @@
         }
       ],
       [
+        "@semantic-release/exec",
+        {
+          "successCmd": "echo published=true >> $GITHUB_OUTPUT && echo version=${nextRelease.version} >> $GITHUB_OUTPUT && echo package_name=$(node -p \"require('./package.json').name\") >> $GITHUB_OUTPUT"
+        }
+      ],
+      [
         "@semantic-release/git",
         {
           "assets": [
@@ -111,6 +118,6 @@
     ]
   },
   "dependencies": {
-    "@cloud-copilot/cli": "^0.2.2"
+    "@actsecurity/cli": "^0.2.2"
   }
 }

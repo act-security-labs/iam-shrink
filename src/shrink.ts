@@ -1,5 +1,5 @@
-import { iamActionDetails } from '@cloud-copilot/iam-data'
-import { actionMatchesPattern, expandIamActions, matchesAnyAction } from '@cloud-copilot/iam-expand'
+import { iamActionDetails } from '@actsecurity/iam-data'
+import { actionMatchesPattern, expandIamActions, matchesAnyAction } from '@actsecurity/iam-expand'
 import { ShrinkValidationError } from './errors.js'
 import { validateShrinkResults } from './validate.js'
 

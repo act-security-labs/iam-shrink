@@ -1,5 +1,5 @@
-import { iamActionDetails } from '@cloud-copilot/iam-data'
-import { expandIamActions, matchesAnyAction } from '@cloud-copilot/iam-expand'
+import { iamActionDetails } from '@actsecurity/iam-data'
+import { expandIamActions, matchesAnyAction } from '@actsecurity/iam-expand'
 import { beforeEach } from 'node:test'
 import { describe, expect, it, vi } from 'vitest'
 import {
@@ -20,8 +20,8 @@ import {
 } from './shrink.js'
 import { validateShrinkResults } from './validate.js'
 
-vi.mock('@cloud-copilot/iam-expand')
-vi.mock('@cloud-copilot/iam-data')
+vi.mock('@actsecurity/iam-expand')
+vi.mock('@actsecurity/iam-data')
 vi.mock('./validate.js')
 
 const mockExpandIamActions = vi.mocked(expandIamActions)

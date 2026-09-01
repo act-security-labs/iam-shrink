@@ -1,7 +1,7 @@
-import { expandIamActions } from '@cloud-copilot/iam-expand'
+import { expandIamActions } from '@actsecurity/iam-expand'
 import { describe, expect, it, vi } from 'vitest'
 import { validateShrinkResults } from './validate.js'
-vi.mock('@cloud-copilot/iam-expand')
+vi.mock('@actsecurity/iam-expand')
 
 const mockExpandIamActions = vi.mocked(expandIamActions)
 

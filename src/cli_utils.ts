@@ -1,4 +1,4 @@
-import { readStdin } from '@cloud-copilot/cli'
+import { readStdin } from '@actsecurity/cli'
 import { getPackageFileReader } from './readPackageFile.js'
 import { type ActionAccessLevel, allActionAccessLevels, type ShrinkOptions } from './shrink.js'
 import { shrinkJsonDocument } from './shrink_file.js'
