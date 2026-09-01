@@ -1,6 +1,6 @@
 # Shrink IAM Actions
 
-[![NPM Version](https://img.shields.io/npm/v/@cloud-copilot/iam-shrink.svg?logo=nodedotjs)](https://www.npmjs.com/package/@cloud-copilot/iam-shrink) [![License: AGPL v3](https://img.shields.io/github/license/cloud-copilot/iam-shrink)](LICENSE.txt) [![GuardDog](https://github.com/cloud-copilot/iam-shrink/actions/workflows/guarddog.yml/badge.svg)](https://github.com/cloud-copilot/iam-shrink/actions/workflows/guarddog.yml) [![Known Vulnerabilities](https://snyk.io/test/github/cloud-copilot/iam-shrink/badge.svg?targetFile=package.json&style=flat-square)](https://snyk.io/test/github/cloud-copilot/iam-shrink?targetFile=package.json)
+[![NPM Version](https://img.shields.io/npm/v/@actsecurity/iam-shrink.svg?logo=nodedotjs)](https://www.npmjs.com/package/@actsecurity/iam-shrink) [![License: AGPL v3](https://img.shields.io/github/license/act-security-labs/iam-shrink)](LICENSE.txt) [![GuardDog](https://github.com/act-security-labs/iam-shrink/actions/workflows/guarddog.yml/badge.svg)](https://github.com/act-security-labs/iam-shrink/actions/workflows/guarddog.yml) [![Known Vulnerabilities](https://snyk.io/test/github/act-security-labs/iam-shrink/badge.svg?targetFile=package.json&style=flat-square)](https://snyk.io/test/github/act-security-labs/iam-shrink?targetFile=package.json)
 
 Built in the Unix philosophy, this is a small tool with two goals:
 
@@ -36,7 +36,7 @@ Existing wildcards will be removed under three conditions:
 
 ## Removing Preexisting Wildcards
 
-If you want to remove all existing wildcards from you policy you can use [iam-expand](https://github.com/cloud-copilot/iam-expand) before using iam-shrink.
+If you want to remove all existing wildcards from you policy you can use [iam-expand](https://github.com/act-security-labs/iam-expand) before using iam-shrink.
 
 ```bash
 curl "https://government-secrets.s3.amazonaws.com/secret-policy.json" | iam-expand | iam-shrink
@@ -53,7 +53,7 @@ curl "https://government-secrets.s3.amazonaws.com/secret-policy.json" | iam-expa
 You can install it globally. This also works in the default AWS CloudShell!
 
 ```bash
-npm install -g @cloud-copilot/iam-shrink
+npm install -g @actsecurity/iam-shrink
 ```
 
 _Depending on your configuration sudo may be required to install globally._
@@ -220,7 +220,7 @@ cat big-policy.json | iam-shrink --levels read list tagging
 You can use the shrink function in your own code.
 
 ```typescript
-import { shrink } from '@cloud-copilot/iam-shrink'
+import { shrink } from '@actsecurity/iam-shrink'
 
 const actions = [
   's3:GetBucketTagging',
@@ -238,7 +238,7 @@ console.log(shrunk)
 You can specify the number of iterations as well.
 
 ```typescript
-import { shrink } from '@cloud-copilot/iam-shrink'
+import { shrink } from '@actsecurity/iam-shrink'
 
 const bigListOfActions = getBigListOfActions()
 

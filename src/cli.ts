@@ -72,7 +72,7 @@ async function run() {
         currentVersion() {
           return getPackageVersion()
         },
-        checkForUpdates: '@cloud-copilot/iam-shrink'
+        checkForUpdates: '@actsecurity/iam-shrink'
       }
     }
   )
