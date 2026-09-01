@@ -5,8 +5,8 @@ import {
   enumArrayArgument,
   numberArgument,
   parseCliArguments
-} from '@cloud-copilot/cli'
-import { iamDataUpdatedAt, iamDataVersion } from '@cloud-copilot/iam-data'
+} from '@actsecurity/cli'
+import { iamDataUpdatedAt, iamDataVersion } from '@actsecurity/iam-data'
 import {
   convertLevels,
   convertNumberOfIterations,
@@ -20,7 +20,7 @@ import {
   type ShrinkOptions
 } from './shrink.js'
 
-const dataPackage = '@cloud-copilot/iam-data'
+const dataPackage = '@actsecurity/iam-data'
 
 async function shrinkAndPrint(actions: string[], shrinkOptions: Partial<ShrinkOptions>) {
   try {

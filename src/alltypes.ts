@@ -1,4 +1,4 @@
-import { iamActionDetails, iamActionsForService, iamServiceKeys } from '@cloud-copilot/iam-data'
+import { iamActionDetails, iamActionsForService, iamServiceKeys } from '@actsecurity/iam-data'
 
 async function main() {
   const types = new Set<string>()
