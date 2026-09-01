@@ -1,4 +1,4 @@
-const bugBaseUrl = 'https://github.com/cloud-copilot/iam-shrink/issues/new'
+const bugBaseUrl = 'https://github.com/act-security-labs/iam-shrink/issues/new'
 
 /**
  * The title of the bug report
@@ -47,7 +47,7 @@ export class ShrinkValidationError extends Error {
   ) {
     super(
       [
-        `@cloud-copilot/iam-shrink has failed validation and this is a bug.`,
+        `@actsecurity/iam-shrink has failed validation and this is a bug.`,
         `Please file a bug at ${bugUrl(desiredPatterns, errorMatch)}`
       ].join('\n')
     )

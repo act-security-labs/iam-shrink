@@ -639,7 +639,7 @@ describe('shrink.ts', () => {
 
       //Then we should get the reduced actions
       await expect(result).rejects.toThrow(
-        /@cloud-copilot\/iam-shrink has failed validation and this is a bug\./
+        /@actsecurity\/iam-shrink has failed validation and this is a bug\./
       )
     })
 
