@@ -1,3 +1,10 @@
+## [0.1.92](https://github.com/act-security-labs/iam-shrink/compare/v0.1.91...v0.1.92) (2026-09-19)
+
+
+### Bug Fixes
+
+* use updated dependency updater action ([3d68c8b](https://github.com/act-security-labs/iam-shrink/commit/3d68c8b64e9cb40042760f5745fc6631325284c2))
+
 ## [0.1.91](https://github.com/act-security-labs/iam-shrink/compare/v0.1.90...v0.1.91) (2026-09-01)
 
 ## [0.1.90](https://github.com/act-security-labs/iam-shrink/compare/v0.1.89...v0.1.90) (2026-09-01)
