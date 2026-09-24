@@ -1,6 +1,6 @@
 ---
 name: iam-shrink
-description: Shrink a long AWS IAM action list into wildcard patterns that match exactly those actions and nothing more, verified by a round trip through iam-expand, by running iam-shrink through npx with nothing installed. Use when a policy is near the 6,144-character limit or an action list is too long to review.
+description: Shrink a long AWS IAM action list into wildcard patterns that match exactly those actions and nothing more, verified by a round trip through iam-expand, by running iam-shrink through npx with nothing installed. Use when a policy is near its size limit or an action list is too long to review.
 license: MIT
 compatibility: Node.js 22 or newer with npx; network access to registry.npmjs.org on first run.
 metadata:
@@ -25,7 +25,7 @@ Actions are split on camel-case words (`s3:GetObjectTagging` is Get, Object, Tag
 
 - **A bare `*` behaves differently per input mode.** As an argument or inside a JSON policy the whole result becomes `*`, which is correct. On plain stdin lines the `*` line is dropped and the rest is shrunk, so a grant-everything list comes back looking narrow. Check the input for `*` first; if it is there, the user's question is not a shrink question.
 - **Existing wildcards are kept** unless they match nothing, are covered by a broader pattern already present, or a smaller pattern replaces them. To rebuild from scratch, expand first: `npx -y @actsecurity/iam-expand@latest | npx -y @actsecurity/iam-shrink@latest`.
-- **`--iterations` trades time for size.** Default 2; `0` runs until nothing changes and is the setting for fighting the identity policy size limit. Measure with `wc -m` before and after so the user sees the gain.
+- **`--iterations` trades readability for size.** Default 2 keeps the patterns recognizable; `0` runs until nothing changes and gives the smallest, least readable result, the setting when a policy is over its size limit. Measure with `wc -m` before and after so the user sees the gain.
 - **`--levels read list tagging`** leaves every write and permissions-management action spelled out, the safer default when rightsizing rather than fighting a size limit.
 - **`--remove-sids` and `--remove-whitespace`** exist for size limits only; they change nothing about permissions.
 - **Stale catalog.** If stderr warns the data package is over five days old, re-run once as `npx -y -p @actsecurity/iam-data@latest -p @actsecurity/iam-shrink@latest iam-shrink`.
