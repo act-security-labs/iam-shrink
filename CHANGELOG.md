@@ -1,3 +1,10 @@
+## [0.1.94](https://github.com/act-security-labs/iam-shrink/compare/v0.1.93...v0.1.94) (2026-09-24)
+
+
+### Bug Fixes
+
+* run PR checks safely for fork contributions ([12d6007](https://github.com/act-security-labs/iam-shrink/commit/12d60078fbdd6083a9ee11802048a95ada6e9b31))
+
 ## [0.1.93](https://github.com/act-security-labs/iam-shrink/compare/v0.1.92...v0.1.93) (2026-09-19)
 
 ## [0.1.92](https://github.com/act-security-labs/iam-shrink/compare/v0.1.91...v0.1.92) (2026-09-19)
