@@ -1,3 +1,5 @@
+## [0.1.96](https://github.com/act-security-labs/iam-shrink/compare/v0.1.95...v0.1.96) (2026-09-26)
+
 ## [0.1.95](https://github.com/act-security-labs/iam-shrink/compare/v0.1.94...v0.1.95) (2026-09-24)
 
 ## [0.1.94](https://github.com/act-security-labs/iam-shrink/compare/v0.1.93...v0.1.94) (2026-09-24)
