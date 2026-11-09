@@ -1,3 +1,11 @@
+## [0.1.103](https://github.com/act-security-labs/iam-shrink/compare/v0.1.102...v0.1.103) (2026-11-09)
+
+
+### Bug Fixes
+
+* pin retry-enabled dependency update action ([3e70277](https://github.com/act-security-labs/iam-shrink/commit/3e7027763267c918e96b834ea33c37e3085bc3b5))
+* stagger dependency update schedule ([8a7db81](https://github.com/act-security-labs/iam-shrink/commit/8a7db81ac836d2beada196f702e891c1ec6cd0bb))
+
 ## [0.1.102](https://github.com/act-security-labs/iam-shrink/compare/v0.1.101...v0.1.102) (2026-11-07)
 
 ## [0.1.101](https://github.com/act-security-labs/iam-shrink/compare/v0.1.100...v0.1.101) (2026-10-31)
