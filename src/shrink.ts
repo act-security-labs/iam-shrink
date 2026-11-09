@@ -452,6 +452,31 @@ export function consolidateWildcardPatterns(patterns: string[]): string[] {
   // Sort patterns to handle simpler cases first
   patterns.sort((a, b) => b.length - a.length)
 
+  if (patterns.every((pattern) => /^[A-Za-z0-9_:*-]+$/.test(pattern))) {
+    let consolidated: string[] = []
+    const literals = new Set<string>()
+    let wildcards: { pattern: string; regex: RegExp }[] = []
+    for (const pattern of patterns) {
+      if (literals.has(pattern) || wildcards.some((entry) => entry.regex.test(pattern))) {
+        continue
+      }
+      if (pattern.includes('*')) {
+        const regex = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$')
+        consolidated = consolidated.filter((existing) => {
+          if (!regex.test(existing)) return true
+          literals.delete(existing)
+          return false
+        })
+        wildcards = wildcards.filter((entry) => !regex.test(entry.pattern))
+        wildcards.push({ pattern, regex })
+      } else {
+        literals.add(pattern)
+      }
+      consolidated.push(pattern)
+    }
+    return consolidated
+  }
+
   let consolidatedPatterns: string[] = []
   for (const pattern of patterns) {
     //If it's already covered, skip it

@@ -69,6 +69,92 @@ describe('shrink.ts', () => {
   })
 
   describe('consolidateWildcardPatterns', () => {
+    it.each([
+      { name: 'empty input', input: [], sorted: [], output: [] },
+      {
+        name: 'duplicate literals and case distinctions',
+        input: ['s:Get', 's:Put', 's:Get', 's:get'],
+        sorted: ['s:Get', 's:Put', 's:Get', 's:get'],
+        output: ['s:Get', 's:Put', 's:get']
+      },
+      {
+        name: 'descending length and stable ties',
+        input: ['z', 'bbb', 'aaa', 'cc', 'bbb'],
+        sorted: ['bbb', 'aaa', 'bbb', 'cc', 'z'],
+        output: ['bbb', 'aaa', 'cc', 'z']
+      },
+      {
+        name: 'broader wildcard replacement',
+        input: ['a*', 'abc', 'ab*', 'ab*'],
+        sorted: ['abc', 'ab*', 'ab*', 'a*'],
+        output: ['a*']
+      },
+      {
+        name: 'equal-length overlapping patterns',
+        input: ['ab', 'b*', 'a*', 'ba'],
+        sorted: ['ab', 'b*', 'a*', 'ba'],
+        output: ['b*', 'a*']
+      },
+      {
+        name: 'a wildcard covering the whole list',
+        input: ['s:Get', '*', 's:Put*'],
+        sorted: ['s:Put*', 's:Get', '*'],
+        output: ['*']
+      },
+      {
+        name: 'consecutive stars',
+        input: ['*', '**'],
+        sorted: ['**', '*'],
+        output: ['**']
+      },
+      {
+        name: 'IAM punctuation',
+        input: ['x-y', 'x_y', 'x:y', 'x*y'],
+        sorted: ['x-y', 'x_y', 'x:y', 'x*y'],
+        output: ['x*y']
+      },
+      {
+        name: 'empty strings',
+        input: ['', 'a', ''],
+        sorted: ['a', '', ''],
+        output: ['a', '']
+      },
+      {
+        name: 'regex character classes',
+        input: ['a', '[ab]', 'b', 'c'],
+        sorted: ['[ab]', 'a', 'b', 'c'],
+        output: ['[ab]', 'c']
+      },
+      {
+        name: 'regex repetition',
+        input: ['a+b', 'aaab', 'ab'],
+        sorted: ['aaab', 'a+b', 'ab'],
+        output: ['a+b']
+      },
+      {
+        name: 'newlines are not matched by a wildcard',
+        input: ['a*', 'a\nb'],
+        sorted: ['a\nb', 'a*'],
+        output: ['a\nb', 'a*']
+      },
+      {
+        name: 'a lone invalid regex is not evaluated',
+        input: ['['],
+        sorted: ['['],
+        output: ['[']
+      }
+    ])('preserves $name', ({ input, sorted, output }) => {
+      expect(consolidateWildcardPatterns(input)).toEqual(output)
+      expect(input).toEqual(sorted)
+    })
+
+    it('propagates invalid regex errors after sorting the input', () => {
+      const input = ['x', '[abc']
+
+      expect(() => consolidateWildcardPatterns(input)).toThrow(SyntaxError)
+      expect(input).toEqual(['[abc', 'x'])
+    })
+
     it('should consolidate wildcard patterns', () => {
       //Given wildcard actions
       const actions = ['*Object', 'Object*', '*Object*']
